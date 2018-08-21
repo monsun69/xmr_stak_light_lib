@@ -446,6 +446,12 @@ if(CMAKE_LINK_STATIC)
     endif()
 endif()
 
+# activate static MSVCRT linking
+if(CMAKE_LINK_STATIC)
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MT")
+endif()
+
 # compile C files
 file(GLOB SRCFILES_C "xmrstak/backend/cpu/crypto/*.c")
 
