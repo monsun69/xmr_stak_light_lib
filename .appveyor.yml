@@ -27,3 +27,11 @@ test_script:
   - copy C:\xmr-stak-dep\openssl\bin\* .
   - set XMRSTAK_NOWAIT=1
   - xmr-stak.exe --help --noUAC
+
+artifacts:
+  - path: build\bin\Release\*.exe
+    name: binary
+
+artifacts:
+  - path: build\bin\Release\*.dll
+    name: library
