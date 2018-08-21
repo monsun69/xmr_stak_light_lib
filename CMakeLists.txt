@@ -417,12 +417,6 @@ include_directories(BEFORE .)
 
 set (CMAKE_POSITION_INDEPENDENT_CODE TRUE)
 
-# activate static MSVCRT linking
-if(CMAKE_LINK_STATIC)
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MT")
-endif()
-
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
     # remove warnings that f_open() is not save and f_open_s should be used
     add_definitions(-D_CRT_SECURE_NO_DEPRECATE)
@@ -450,6 +444,12 @@ if(CMAKE_LINK_STATIC)
     if(${CMAKE_CXX_COMPILER_ID} STREQUAL "GNU" OR ${CMAKE_C_COMPILER_ID} STREQUAL "GNU")
         set(LIBS "-static-libgcc -static-libstdc++ ${LIBS}")
     endif()
+endif()
+
+# activate static MSVCRT linking
+if(CMAKE_LINK_STATIC)
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MD")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MD")
 endif()
 
 # compile C files
