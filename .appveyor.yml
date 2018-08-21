@@ -31,7 +31,5 @@ test_script:
 artifacts:
   - path: build\bin\Release\*.exe
     name: binary
-
-artifacts:
   - path: build\bin\Release\*.dll
     name: library
