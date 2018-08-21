@@ -448,8 +448,8 @@ endif()
 
 # activate static MSVCRT linking
 if(CMAKE_LINK_STATIC)
-    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MD")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MD")
+    set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} /MT")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MT")
 endif()
 
 # compile C files
